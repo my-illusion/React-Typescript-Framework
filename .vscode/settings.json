@@ -1,0 +1,21 @@
+{
+    "emmet.triggerExpansionOnTab": true,
+
+    // stylelint配置
+    "stylelint.enable": true,
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "[css]": {
+        "editor.formatOnSave":  true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": true
+        },
+    },
+    "[scss]": {
+        "editor.formatOnSave":  true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": true
+        },
+    }
+}
