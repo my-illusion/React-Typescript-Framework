@@ -19,7 +19,7 @@ function App(): JSX.Element {
                 >
                     Learn React
                 </a>
-                <Button type="primary">11</Button>
+                <Button type="primary">112225555666</Button>
             </header>
         </div>
     )

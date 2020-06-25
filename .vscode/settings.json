@@ -7,13 +7,13 @@
     "less.validate": false,
     "scss.validate": false,
     "[css]": {
-        "editor.formatOnSave":  true,
+        "editor.formatOnSave":  false,
         "editor.codeActionsOnSave": {
             "source.fixAll.stylelint": true
         },
     },
     "[scss]": {
-        "editor.formatOnSave":  true,
+        "editor.formatOnSave":  false,
         "editor.codeActionsOnSave": {
             "source.fixAll.stylelint": true
         },
