@@ -149,7 +149,7 @@
         {
           "libraryName": "antd",
           "libraryDirectory": "es",
-          "style": "css"
+          "style": true
         }
       ]
     ]
@@ -169,6 +169,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
+    "less": "^3.11.3",
+    "less-loader": "^6.1.2",
     "prettier": "^2.0.5",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",

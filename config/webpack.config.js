@@ -23,6 +23,7 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin')
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
 
+const antdTheme = require("../src/antd-theme")
 const postcssNormalize = require('postcss-normalize')
 
 const appPackageJson = require(paths.appPackageJson)
@@ -47,6 +48,7 @@ const cssRegex = /\.css$/
 const cssModuleRegex = /\.module\.css$/
 const sassRegex = /\.(scss|sass)$/
 const sassModuleRegex = /\.module\.(scss|sass)$/
+const lessRegex = /\.less$/
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -451,6 +453,24 @@ module.exports = function (webpackEnv) {
                                     getLocalIdent: getCSSModuleLocalIdent,
                                 },
                             }),
+                        },
+                        {
+                          test: lessRegex,
+                          use: [
+                            isEnvProduction
+                                  ? MiniCssExtractPlugin.loader
+                                  : 'style-loader',
+                              'css-loader',
+                              {
+                                  loader: 'less-loader',
+                                  options: {
+                                      lessOptions: {
+                                        javascriptEnabled: true,
+                                        modifyVars: antdTheme
+                                      }
+                                   }
+                              }
+                          ]
                         },
                         // Opt-in support for SASS (using .scss or .sass extensions).
                         // By default we support SASS Modules with the
