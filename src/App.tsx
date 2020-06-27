@@ -1,16 +1,15 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
-import LeftRightLayout from './layout/Left-Right-Layout.tsx'
-import RouteGuard from './lib/RouteGuard'
-import Login from './pages/login'
+import { Routes } from './lib'
+import routeConfig from './routeConfig'
 import zhCN from 'antd/es/locale/zh_CN'
 
 function App(): JSX.Element {
     return (
         <BrowserRouter>
             <ConfigProvider locale={zhCN}>
-                <Switch>
+                {/* <Switch>
                     <Route path="/" exact>
                         <Redirect to="/home" />
                     </Route>
@@ -25,7 +24,8 @@ function App(): JSX.Element {
                         )}
                         exact
                     ></Route>
-                </Switch>
+                </Switch> */}
+                <Routes routes={routeConfig} />
             </ConfigProvider>
         </BrowserRouter>
     )
