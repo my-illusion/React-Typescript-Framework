@@ -1,27 +1,33 @@
 import React from 'react'
-import { Button } from 'antd'
-import logo from './logo.svg'
-import './App.css'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { ConfigProvider } from 'antd'
+import LeftRightLayout from './layout/Left-Right-Layout.tsx'
+import RouteGuard from './lib/RouteGuard'
+import Login from './pages/login'
+import zhCN from 'antd/es/locale/zh_CN'
 
 function App(): JSX.Element {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-                <Button type="primary">1122445</Button>
-            </header>
-        </div>
+        <BrowserRouter>
+            <ConfigProvider locale={zhCN}>
+                <Switch>
+                    <Route path="/" exact>
+                        <Redirect to="/home" />
+                    </Route>
+                    <Route path="/login" component={Login} exact></Route>
+                    <Route
+                        path="/home"
+                        render={(props) => (
+                            <RouteGuard
+                                component={LeftRightLayout}
+                                {...props}
+                            />
+                        )}
+                        exact
+                    ></Route>
+                </Switch>
+            </ConfigProvider>
+        </BrowserRouter>
     )
 }
 
